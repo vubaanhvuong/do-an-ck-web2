@@ -1,0 +1,13 @@
+<%- include('../layout/header'); -%>
+
+<div class="col-12 col-lg-4" style="margin-left: 30vw;margin-top: 2vw;">
+    <div class="newsletter-widget">
+        <form action="/auth/login" method="post">
+            <input type="email" name="email" placeholder="Email">
+            <input type="password" name="password" placeholder="Password">
+            <button type="submit" class="btn w-100">Login</button>
+        </form>
+    </div>
+</div>
+
+<%- include('../layout/footer'); -%>

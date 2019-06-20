@@ -1,0 +1,17 @@
+<%- include('../layout/header'); -%>
+
+<div class="col-12 col-lg-4" style="margin-left: 30vw;margin-top: 2vw;">
+    <div class="newsletter-widget">
+        <form action="/auth/register" method="post">
+            <input type="email" name="email" placeholder="Email">
+            <input type="password" name="password" placeholder="Password">
+            <input type="text" name="name" placeholder="Name">
+            <input type="text" name="phone" placeholder="Phone">
+            <input type="text" name="address" placeholder="Address">
+            <input type="text" name="passport" placeholder="Passport">
+            <button type="submit" class="btn w-100">Register</button>
+        </form>
+    </div>
+</div>
+
+<%- include('../layout/footer'); -%>

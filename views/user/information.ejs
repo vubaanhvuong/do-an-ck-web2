@@ -1,0 +1,22 @@
+<%- include('../layout/header'); -%>
+
+<div class="col-12 col-lg-4" style="margin-left: 30vw;margin-top: 2vw;">
+    <div class="newsletter-widget">
+        <form action="#">
+            <button type="submit" class="btn w-100">Email:</button>
+            <input type="text" value="<%= info.email %>">
+            <button type="submit" class="btn w-100">Name:</button>
+            <input type="text" value="<%= info.full_name %>">
+            <button type="submit" class="btn w-100">Phone:</button>
+            <input type="text" value="<%= info.phone_number %>">
+            <button type="submit" class="btn w-100">Address:</button>
+            <input type="text" value="<%= info.address %>">
+            <button type="submit" class="btn w-100">Passport:</button>
+            <input type="text" value="*******">
+            <button type="submit" class="btn w-100">Role:</button>
+            <input type="text" value="Biên tập viên">
+        </form>
+    </div>
+</div>
+
+<%- include('../layout/footer'); -%>
