@@ -50,7 +50,7 @@ router.get('/register', function (req, res) {
 
 router.post('/register', async function (req, res) {
     const {
-        Email,
+        email,
         password,
         phone,
         name,
@@ -58,7 +58,7 @@ router.post('/register', async function (req, res) {
         passport
     } = req.body;
 
-    console.log(Email);
+    console.log(email);
     console.log(password);
     console.log(phone);
     console.log(name);
@@ -67,7 +67,7 @@ router.post('/register', async function (req, res) {
 
     Users.findOne({
         where: {
-            email: Email
+            email: email
         }
     }).then(info => {
         if (info) {
@@ -79,7 +79,7 @@ router.post('/register', async function (req, res) {
                 bcrypt.hash(password, salt, function (err, hash) {
                     console.log(hash);
                     Users.create({
-                        email: Email,
+                        email: email,
                         password: hash,
                         full_name: name,
                         address: address,
@@ -87,7 +87,7 @@ router.post('/register', async function (req, res) {
                         passport: passport,
                         writer: false
                     }).then(function (req, res) {
-                        req.session.email = Users.Email;
+                        req.session.email = email;
                         res.redirect('/');
                     }).catch(err => console.log(err));
                 });
