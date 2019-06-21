@@ -86,8 +86,8 @@ router.post('/register', async function (req, res) {
                         phone_number: phone,
                         passport: passport,
                         writer: false
-                    }).then(function (req, res) {
-                        req.session.email = email;
+                    }).then(data => function (req, res) {
+                        req.session.email = data.email;
                         res.redirect('/');
                     }).catch(err => console.log(err));
                 });
