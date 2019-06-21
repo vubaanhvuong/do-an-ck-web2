@@ -65,7 +65,7 @@ router.post('/register', async function (req, res) {
     console.log(address);
     console.log(passport);
 
-    Users.findOne({
+    await Users.findOne({
         where: {
             email: email
         }
@@ -75,10 +75,10 @@ router.post('/register', async function (req, res) {
                 message: "Email đã tồn tại"
             });
         } else {
-            bcrypt.genSalt(10, function (err, salt) {
-                bcrypt.hash(password, salt, function (err, hash) {
+           await bcrypt.genSalt(10, function (err, salt) {
+              await  bcrypt.hash(password, salt, function (err, hash) {
                     console.log(hash);
-                    Users.create({
+                  await  Users.create({
                         email: email,
                         password: hash,
                         full_name: name,
@@ -87,6 +87,7 @@ router.post('/register', async function (req, res) {
                         passport: passport,
                         writer: false
                     }).then(function (req, res) {
+                        req.session.email = email;
                         res.redirect('/');
                     }).catch(err => console.log(err));
                 });
