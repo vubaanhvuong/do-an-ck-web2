@@ -87,7 +87,7 @@ router.post('/register', async function (req, res) {
                         passport: passport,
                         writer: false
                     }).then(function (req, res) {
-                        req.session.email = email;
+                        req.session.Email = email;
                         res.redirect('/');
                     }).catch(err => console.log(err));
                 });

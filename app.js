@@ -27,14 +27,14 @@ app.use(session({
 app.use(function (req, res, next) {
   res.locals.currentUser = null;
   var {
-    email
+    Email
   } = req.session;
-  if (!email) {
+  if (!Email) {
     next();
   } else {
     Users.findOne({
       where: {
-        email
+        emai:Email
       }
     }).then(function (user) {
       if (!user) {
